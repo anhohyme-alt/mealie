@@ -1,15 +1,15 @@
 http:
   routers:
     mealie:
-      rule: "Host(`mealie.lirycs25.duckdns.org`)"
+      rule: "Host(`${MEALIE_DOMAIN}`)"
       entryPoints:
         - websecure
       service: mealie
       tls:
-        certResolver: duckdns
+        certResolver: myresolver
 
   services:
     mealie:
       loadBalancer:
         servers:
-          - url: "http://mealie:9000"
+          - url: "http://mealie-uiughk91s339sxvy1uq0ngym-195957807908:9000"
