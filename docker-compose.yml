@@ -15,7 +15,7 @@ services:
       - BASE_URL=${BASE_URL}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mealie.rule=Host(`${MEALIE_DOMAIN}`)"
+      - "traefik.http.routers.mealie.rule=Host(`mealie.lirycs25.duckdns.org`)"
       - "traefik.http.routers.mealie.entrypoints=websecure"
       - "traefik.http.routers.mealie.tls.certresolver=myresolver"
       - "traefik.http.services.mealie.loadbalancer.server.port=9000"
