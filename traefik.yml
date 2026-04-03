@@ -1,0 +1,15 @@
+http:
+  routers:
+    mealie:
+      rule: "Host(`mealie.lirycs25.duckdns.org`)"
+      entryPoints:
+        - websecure
+      service: mealie
+      tls:
+        certResolver: duckdns
+
+  services:
+    mealie:
+      loadBalancer:
+        servers:
+          - url: "http://mealie:9000"

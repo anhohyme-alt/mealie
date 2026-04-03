@@ -1,0 +1,26 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    container_name: mealie
+    restart: unless-stopped
+    ports:
+      - "9925:9000"
+    volumes:
+      - mealie-data:/app/data/
+    environment:
+      - ALLOW_SIGNUP=false
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - MAX_WORKERS=1
+      - WEB_CONCURRENCY=1
+      - BASE_URL=https://mealie.lirycs25.duckdns.org
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  mealie-data:
